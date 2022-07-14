@@ -7,3 +7,9 @@ def index(request):
 
 def stockgroup(request):
     return render(request,'stock group creation.html')
+
+def stockcategory(request):
+    return render(request,'stock category creation.html')
+
+def stockitem(request):
+    return render(request,'stock item creation.html')
