@@ -13,3 +13,12 @@ def stockcategory(request):
 
 def stockitem(request):
     return render(request,'stock item creation.html')
+
+def unitalter(request):
+    return render(request,'unit alteration.html')
+
+def locationalter(request):
+    return render(request,'Location alteration.html')
+
+def companypricelevel(request):
+    return render(request,'company price level.html')
