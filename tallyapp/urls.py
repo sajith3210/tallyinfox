@@ -10,4 +10,5 @@ urlpatterns = [
     path('unitalteration/',views.unitalter,name='unitalteration'),
     path('locationalteration/',views.locationalter,name='locationalteration'),
     path('companypricelevel/',views.companypricelevel,name='companypricelevel'),
+    path('liststockgroup/',views.liststockgroup,name='liststockgroup'),
 ]

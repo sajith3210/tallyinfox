@@ -24,6 +24,10 @@ def stockgroup(request):
             return redirect('stockgroup')
     return render(request,'stock group creation.html',{'st':stock_grou})
 
+def liststockgroup(request):
+    
+    return render(request,'list of stock groups.html')
+
 def stockcategory(request):
     return render(request,'stock category creation.html')
 
