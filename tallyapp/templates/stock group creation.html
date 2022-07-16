@@ -429,12 +429,12 @@
             <div class="page-wrapper">
                 <div class="page-content-wrapper" style="background-color: #2f516f;">
                     <div class="container pt-3">
-                        {% for message in messages %} {% if message %}
+                        {% for msg in messages %} {% if message %}
                         <div class="alert" onclick="this.parentElement.style.display='none';">
                             <div class="row d-flex">
                                 <div class="col-md-12">
                                     <center>
-                                        <h5 style="color: goldenrod;">{{ message }}</h5>
+                                        <h5 style="color: goldenrod;">{{ msg }}</h5>
                                     </center>
                                 </div>
                             </div>
@@ -458,7 +458,7 @@
                 {% csrf_token %}
             <h6 class="p-1" style="background-color:rgb(191, 191, 253) ;color: black; text-align:left; width: 100%;">Stock Group Creation</h6>
             <label for="">Name</label>
-            <input type="text" name="stock_group_name" id=""> <br>
+            <input required type="text" name="stock_group_name" id=""> <br>
             <label for="">Alias</label> &nbsp; 
             <input type="text" name="stock_group_alias" id=""> <br>
             <label for="">Under</label>
@@ -477,14 +477,24 @@
          
             <label class="mt-3" for="">Shoud quantity of items be added  : </label>
             <select class="mt-3" name="quantity_item" id="dropdown">
-                <option  value="value1">Yes</option>
-                <option  value="value1">NO</option>
+                <option  value="Yes">Yes</option>
+                <option  value="No">NO</option>
             </select> <br> <br>
-            <button type="submit" class="btn btn-success w-50">Save</button>
+            <button type="submit" class="btn btn-success w-50">Save</button> <br><br> 
+            {% if messages %}
+
+            {% for message in messages %}
+            
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
         </form>
         </div>
         <div class="col-md-3"></div>
     </div>
+
     <!-- JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>

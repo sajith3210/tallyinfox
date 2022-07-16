@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from  tallyapp.models import *
+from django.contrib import messages
 # Create your views here.
 def index(request):
 
@@ -8,15 +9,19 @@ def index(request):
 def stockgroup(request):
     stock_grou=stock_group.objects.all()
     if request.method=="POST":
-        nme=request.POST['stock_group_name']
+        nme=request.POST['stock_group_name'].title()
         alia=request.POST['stock_group_alias']
         und=request.POST['stock_group_under']
         should_quantity_item=request.POST['quantity_item']
 
-        if stock_grou.objects.get(stock_group_name=nme).exists():
-            
-        su=stock_group(stock_group_name=nme,alias=alia,under=und,should_quantity_of_items_be_added=should_quantity_item) 
-        su.save()  
+        if stock_group.objects.filter(stock_group_name=nme).exists():
+            messages.info(request,'Name already exists Enter a diffrent name')
+            return redirect('stockgroup')
+        else:   
+            su=stock_group(stock_group_name=nme,alias=alia,under=und,should_quantity_of_items_be_added=should_quantity_item) 
+            su.save() 
+            messages.info(request,'Stock group save successfully') 
+            return redirect('stockgroup')
     return render(request,'stock group creation.html',{'st':stock_grou})
 
 def stockcategory(request):
