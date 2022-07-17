@@ -25,8 +25,9 @@ def stockgroup(request):
     return render(request,'stock group creation.html',{'st':stock_grou})
 
 def liststockgroup(request):
+    stock_grou=stock_group.objects.all()
     
-    return render(request,'list of stock groups.html')
+    return render(request,'list of stock groups.html',{'st':stock_grou})
 
 def stockcategory(request):
     return render(request,'stock category creation.html')

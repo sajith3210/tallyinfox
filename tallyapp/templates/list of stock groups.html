@@ -452,18 +452,35 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-md-4" style="background-color:rgb(226, 241, 252) ;">
+            <div class="col-md-4 p-5" style="background-color:rgb(226, 241, 252) ;min-height: 500px ;max-width: 500px; color: black;">
                 <p style="margin:0;box-sizing: 0; background-color:rgb(62, 107, 231) ;color: white; ">List of stock groups </p>
-                <div class="card" style="background-color:rgb(226, 241, 252) ;color: black;height:50px;">
-                    <div class="card-body">
+                <div class="card" style="background-color:rgb(226, 241, 252) ;color: black;min-height:50px;">
+                    <div class="card-body" style="max-width: 300px;" >
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a style="color: black;" href="http://">Create</a>
-                    </div>
-                    
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-secondary w-100" style="color: black;" href="{% url 'stockgroup' %}">Create</a>
+                    </div>                    
                 </div>
+                    <table  style="background-color:rgb(226, 241, 252) ;" class="table table-primary table-bordered">
+                        
+                        {% for s in st  %}
+                    
+                        <tr>
+                            <td style="color:black ;">{{s.stock_group_name}} </td>
+                            
+                            
+                            
+                            <td>
+                                <a class="btn btn-primary w-100" href="#">Alter</a> <br> <br>
+                                <a class="btn btn-primary w-100" href="#">Delete</a>
+                            </td>
+                        </tr> 
+                        {% endfor %}    
+                    </table>
             </div>
             <div class="col-md-4"></div>
         </div>
