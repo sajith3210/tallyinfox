@@ -11,4 +11,7 @@ urlpatterns = [
     path('locationalteration/',views.locationalter,name='locationalteration'),
     path('companypricelevel/',views.companypricelevel,name='companypricelevel'),
     path('liststockgroup/',views.liststockgroup,name='liststockgroup'),
+    path('stockgroupalter/<int:pk>/',views.stockgroupalter,name='stockgroupalter'),
+    path('stockgroupdelete/<int:pk>/',views.stockgroupdelete,name='stockgroupdelete'),
+    path('stockcategoryalter/<int:pk>/',views.stockcategoryalter,name='stockcategoryalter'),
 ]

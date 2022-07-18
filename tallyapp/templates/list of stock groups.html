@@ -453,7 +453,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 p-5" style="background-color:rgb(226, 241, 252) ;min-height: 500px ;max-width: 500px; color: black;">
-                <p style="margin:0;box-sizing: 0; background-color:rgb(62, 107, 231) ;color: white; ">List of stock groups </p>
+                <p style="margin:0;box-sizing: 0; background-color:rgb(62, 107, 231) ;color: white; ">List of stock Categories </p>
                 <div class="card" style="background-color:rgb(226, 241, 252) ;color: black;min-height:50px;">
                     <div class="card-body" style="max-width: 300px;" >
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -475,8 +475,8 @@
                             
                             
                             <td>
-                                <a class="btn btn-primary w-100" href="#">Alter</a> <br> <br>
-                                <a class="btn btn-primary w-100" href="#">Delete</a>
+                                <a class="btn btn-primary w-100" href="{% url 'stockgroupalter' s.id %}">Alter</a> <br> <br>
+                                <a class="btn btn-primary w-100" href="{% url 'stockgroupdelete' s.id %}">Delete</a>
                             </td>
                         </tr> 
                         {% endfor %}    

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Fin sYs</title>
+    <title>Stock group creation</title>
     <!--favicon-->
     <link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/png" />
     <!-- Vector CSS -->
@@ -449,25 +449,32 @@
 
     </div>
     <!-- end wrapper -->
+
     <div class="container">
-    <div class="row mt-3">
-        <div class="col-md-3"> </div>
-        <div style="background-color:rgb(245 225 141);color: black;" class="col-md-6 p-3 "> 
+    <div class="row mt-3"" >
+        <div class="col-md-3"></div>
+        <div style="background-color:rgb(245 225 141);color: black;" class="col-md-6 p-5">
             <form action="" method="post">
                 {% csrf_token %}
-            <h6 class="p-1" style="background-color:rgb(191, 191, 253) ;color: black; text-align:left; width: 100%;">Stock Category Creation   </h6>
+            <h6 class="p-1" style="background-color:rgb(191, 191, 253) ;color: black; text-align:left; width: 100%;">Stock Group Creation</h6>
             
-            <label for="">Name</label>
-            <input type="text" name="catname" id=""> <br>
-            <label for="">Alias</label> &nbsp;
-            <input type="text" name="catalias"> <br>
-            <label for="">Under</label>
-            <select class="mt-3" name="catunder" id="dropdown">
-                <option  value="value1">Primary</option> 
+                
+            <label for="">Name  </label>
+            <input required type="text" value="{{st_one.stock_group_name}}" name="stock_group_name" id=""> <br>
+            <label for="">Alias</label> &nbsp;  
+            <input type="text" value="{{st_one.alias}}" name="stock_group_alias" id=""> <br>
+                
+            <label for="">Under</label>      
+            <select class="mt-3" name="stock_group_under" id="dropdown">
+                <option  value="Primary">Primary</option>
                 {% for s in st  %}
-                    <option value="">{{s.stock_category_name}} </option>
+                    <option value="{{s.stock_group_name}}">{{s.stock_group_name}}</option>
                 {% endfor %}
-                    
+            </select> <br>
+            <label class="mt-3" for="">Shoud quantity of items be added  : </label>
+            <select class="mt-3" name="quantity_item" id="dropdown">
+                <option  value="Yes">Yes</option>
+                <option  value="No">NO</option>
             </select> <br> <br>
             <button type="submit" class="btn btn-success w-50">Save</button> <br><br> 
             {% if messages %}
@@ -479,12 +486,12 @@
             </div>
             {% endfor %}
             {% endif %}
+        </form>
         </div>
-    </form>
-        <div class="col-md-3"> </div>
-
+        <div class="col-md-3"></div>
     </div>
 </div>
+
     <!-- JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
