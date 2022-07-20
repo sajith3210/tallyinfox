@@ -60,7 +60,7 @@ def stockgroupdelete(request,pk):
 def stockcategory(request):
     stcat=stock_category.objects.all()
     if request.method=="POST":
-        ctname=request.POST['catname']
+        ctname=request.POST['catname'].title()
         ctalias=request.POST['catalias']
         ctunder=request.POST['catunder']
         if stock_category.objects.filter(stock_category_name=ctname).exists():
@@ -75,8 +75,22 @@ def listofstockcategories(request):
     stcat=stock_category.objects.all()
     return render(request,'list of stock categories.html',{'st':stcat})
 
-def stockcategoryalter(request):
-    pass
+def stockcategoryalter(request,pk):
+    stkcat=stock_category.objects.all()
+    stcat_one=stock_category.objects.get(id=pk)
+    if request.method=="POST":
+        stcat=stock_category.objects.get(id=pk)
+        stcat.stock_category_name=request.POST['catname'].title()
+        stcat.alias=request.POST['catalias']
+        stcat.under=request.POST['catunder']
+        stcat.save()
+        return redirect('listofstockcategories')
+    return render(request,'stockcategoryalter.html',{'st':stkcat,'stcat_one':stcat_one})
+
+def stockcategorydelete(request,pk):
+    stcat=stock_category.objects.get(id=pk)
+    stcat.delete()
+    return redirect('listofstockcategories')
 
 def stockitem(request):
     return render(request,'stock item creation.html')
@@ -84,8 +98,45 @@ def stockitem(request):
 def unitalter(request):
     return render(request,'unit alteration.html')
 
-def locationalter(request):
-    return render(request,'Location alteration.html')
 
-def companypricelevel(request):
-    return render(request,'company price level.html')
+
+def locationcreation(request):
+    lo=location.objects.all()
+    if request.method=="POST":
+        lnm=request.POST['lname'].title()
+        lal=request.POST['lalias']
+        lun=request.POST['lunder']
+        if location.objects.filter(location_name=lnm).exists():
+            messages.info(request,'Location name already exists Enter a diffrent name')
+        else:
+            lt=location(location_name=lnm,alias=lal,under=lun)
+            lt.save()
+            messages.info(request,'Location save successfully')
+    return render(request,'Location creation.html',{'lo':lo})
+
+def listoflocation(request):
+    lo=location.objects.all()
+    return render(request,'list of location.html',{'lo':lo})
+
+def locationalter(request,pk):
+    lo=location.objects.all()
+    loc=location.objects.get(id=pk)
+    if request.method=="POST":
+        loc.location_name=request.POST['lname'].title()
+        loc.alias=request.POST['lalias']
+        loc.under=request.POST['lunder']
+        loc.save()
+        return redirect('listoflocation')
+    return render(request,'Location alteration.html',{'lo':lo,'loc':loc})
+
+def locationdelete(request,pk):
+    loc=location.objects.get(id=pk)
+    loc.delete()
+    return redirect('listoflocation')
+
+
+def company_price_level(request):
+    co=companypricelevel.objects.all()
+    if request.method=="POST":
+        pass
+    return render(request,'company price level.html',{'co':co})
