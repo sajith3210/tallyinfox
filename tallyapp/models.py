@@ -19,5 +19,7 @@ class location(models.Model):
     alias=models.CharField(max_length=10)
     under=models.CharField(max_length=100)
 
-class companypricelevel(models.Model):
-    price_level_name=models.CharField(max_length=100)
+# class companypricelevel(models.Model):
+#     price_level_name=models.CharField(max_length=100)
+
+class unit(models.Model):

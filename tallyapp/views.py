@@ -95,6 +95,12 @@ def stockcategorydelete(request,pk):
 def stockitem(request):
     return render(request,'stock item creation.html')
 
+def simpleunit(request):
+    return render(request,'simple unit creation.html')
+
+def compoundunit(request):
+    return render(request,'compound unit creation.html')
+
 def unitalter(request):
     return render(request,'unit alteration.html')
 
@@ -135,8 +141,11 @@ def locationdelete(request,pk):
     return redirect('listoflocation')
 
 
-def company_price_level(request):
+def companyprice_level(request):
     co=companypricelevel.objects.all()
     if request.method=="POST":
-        pass
+        pname=request.POST["pricename"]
+        c=companypricelevel(price_level_name=pname)
+        c.save()
+        return redirect('companypricelevel')
     return render(request,'company price level.html',{'co':co})

@@ -40,6 +40,14 @@
         .a {
             font-family: "Poppins", sans-serif;
         }
+        select option {
+            font-size: 13px;
+            background-color: white;
+        }
+        label select{
+            min-width: 180px;
+            
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -449,34 +457,52 @@
 
     </div>
     <!-- end wrapper -->
-    <div class="container">
-        <div class="row mt-3">
-            <div class="col-md-3"> </div>
-                <div style="background-color:rgb(245 225 141);color: black;" class="col-md-4 p-3">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <h6 class="p-1" style="background-color:rgb(191, 191, 253) ;color: black; text-align:left; width: 100%;">company price level</h6>
-                    <input type="text" name="pricename" id=""> <button class="btn btn-primary btn-sm w-25">Add</button>
-                 
-                    <table>
-                        
-                        {% for c  in co  %}
-                        <tr>
-                            <td>{{c.id}}.</td>
-                            <td></td>
-                            <td>{{c.price_level_name}}</td>
-                        </tr> 
-                        {% endfor %}
-                            
-                      
-                    </table>
-                </form>
-                </div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-3"> </div>
+        <div  class="col-md-6 p-3 "> 
+            <div class="card" style="background-color:rgb(245 225 141);color: black;"> 
+            <div class="card-body">
+             <form action="">
+            <h6 class="p-1" style="background-color:rgb(191, 191, 253) ;color: black; text-align:left; width: 100%;">Unit Creation </h6> 
+            <label for="">Type</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;
+            <label for="">
+            <select  name="" id="">
+                <option value="">Simple</option>
+               <option value=""><a href="{% url 'compoundunit' %}">Compound</a> </option> 
+            </select> </label>
+            <br> <br>
+            <label for="">Symbol</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="" id="">
+            <br> <br>
+            <label for="">Formal name</label> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="" id="">
+            <br> <br>
+   
+            <label for="">Number of decimal places</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="" type="text" name="" id=""> <br><br> 
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-success w-50">Save</button> <br><br> 
 
-
-            <div class="col-md-5"> </div>
+        </form>
         </div>
+            </div>
+        </div>
+
     </div>
+</div>
     <!-- JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>

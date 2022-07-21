@@ -10,7 +10,7 @@ urlpatterns = [
     path('stockitem/',views.stockitem,name='stockitem'),
     path('unitalteration/',views.unitalter,name='unitalteration'),
     
-    path('companypricelevel/',views.companypricelevel,name='companypricelevel'),
+    path('companypricelevel/',views.companyprice_level,name='companypricelevel'),
 
     path('liststockgroup/',views.liststockgroup,name='liststockgroup'),
     path('stockgroupalter/<int:pk>/',views.stockgroupalter,name='stockgroupalter'),
@@ -24,4 +24,7 @@ urlpatterns = [
     path('listoflocation/',views.listoflocation,name='listoflocation'),
     path('locationalteration/<int:pk>/',views.locationalter,name='locationalteration'),
     path('locationdelete/<int:pk>/',views.locationdelete,name='locationdelete'),
+
+    path('simpleunit/',views.simpleunit,name='simpleunit'),
+    path('compoundunit/',views.compoundunit,name='compoundunit'),
 ]
