@@ -437,12 +437,12 @@
             <div class="page-wrapper">
                 <div class="page-content-wrapper" style="background-color: #2f516f;">
                     <div class="container pt-3">
-                        {% for message in messages %} {% if message %}
+                        {% for msg in messages %} {% if message %}
                         <div class="alert" onclick="this.parentElement.style.display='none';">
                             <div class="row d-flex">
                                 <div class="col-md-12">
                                     <center>
-                                        <h5 style="color: goldenrod;">{{ message }}</h5>
+                                        <h5 style="color: goldenrod;">{{ msg }}</h5>
                                     </center>
                                 </div>
                             </div>
@@ -463,15 +463,16 @@
         <div  class="col-md-6 p-3 "> 
             <div class="card" style="background-color:rgb(245 225 141);color: black;"> 
             <div class="card-body">
-             <form action="">
+             <form action="" method="post">
+                {% csrf_token %}
             <h6 class="p-1" style="background-color:rgb(191, 191, 253) ;color: black; text-align:left; width: 100%;">Unit Creation </h6> 
             <label for="">Type</label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp; &nbsp;&nbsp;
             <label for="">
-            <select  name="" id="">
-                <option value="">Simple</option>
+            <select  name="simple" id="">
+                <option value="Simple">Simple</option>
                <option value=""><a href="{% url 'compoundunit' %}">Compound</a> </option> 
             </select> </label>
             <br> <br>
@@ -479,23 +480,31 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" name="" id="">
+            <input required type="text" name="sym" id="">
             <br> <br>
             <label for="">Formal name</label> 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" name="" id="">
+            <input type="text" name="formal" id="">
             <br> <br>
    
             <label for="">Number of decimal places</label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="" type="text" name="" id=""> <br><br> 
+            <input value="0" class="" type="text" name="ndp" id=""> <br><br> 
             &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
             <button type="submit" class="btn btn-success w-50">Save</button> <br><br> 
+            {% if messages %}
 
+            {% for message in messages %}
+            
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
         </form>
         </div>
             </div>

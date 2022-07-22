@@ -1,3 +1,4 @@
+from symtable import Symbol
 from tkinter import messagebox
 from django.shortcuts import redirect, render
 from  tallyapp.models import *
@@ -95,7 +96,21 @@ def stockcategorydelete(request,pk):
 def stockitem(request):
     return render(request,'stock item creation.html')
 
+
+
 def simpleunit(request):
+    if request.method=="POST":
+        untype=request.POST['simple']
+        sy=request.POST['sym']
+        form=request.POST['formal']
+        numberdeci=request.POST['ndp']
+        if unit.objects.filter(symbol=sy).exists():
+            messages.info(request,'Symbol name already exists enter a diffrent name')
+        else:
+            u=unit(type=untype,symbol=sy,formal_name=form,number_of_decimal_places=numberdeci)
+            u.save()
+            messages.info(request,'Save successfully')
+            return redirect('simpleunit')
     return render(request,'simple unit creation.html')
 
 def compoundunit(request):
@@ -103,6 +118,8 @@ def compoundunit(request):
 
 def unitalter(request):
     return render(request,'unit alteration.html')
+
+
 
 
 

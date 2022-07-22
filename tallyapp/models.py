@@ -19,7 +19,15 @@ class location(models.Model):
     alias=models.CharField(max_length=10)
     under=models.CharField(max_length=100)
 
-# class companypricelevel(models.Model):
-#     price_level_name=models.CharField(max_length=100)
+class companypricelevel(models.Model):
+    price_level_name=models.CharField(max_length=100)
 
 class unit(models.Model):
+    type=models.CharField(max_length=50,null=True,blank=True)
+    symbol=models.CharField(max_length=50,null=True,blank=True)
+    formal_name=models.CharField(max_length=50,null=True,blank=True)
+    number_of_decimal_places=models.IntegerField(null=True,blank=True)
+    first_unit=models.CharField(max_length=50)
+    conversion=models.IntegerField(null=True,blank=True)
+    second_unit=models.CharField(max_length=50,null=True,blank=True)
+
