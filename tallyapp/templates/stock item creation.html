@@ -479,32 +479,43 @@
     <div class="container">
 
         <div class="row">
-            <h6 class="p-1"
-                style="margin: 0;box-sizing: 0; background-color:rgb(191, 191, 253) ;color: black; text-align:left; width: 100%;">
-                Stock Item Creation</h6>
-            <div style="background-color:rgb(245 225 141);color: black;border: 1px solid black;padding:60px 8px ;"
-                class="col">
 
-                <label for="">Name</label>
-                <input type="text" name="" id=""> <br>
-                <!-- <hr width="100%" class="mt-5" color="black"> -->
+
+            <div class="col">
+                <div style="background-color:rgb(245 225 141);color: black;border: 1px solid black;padding:60px 8px ;"
+                    class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h6 class="p-1"
+                                style="margin: 0;box-sizing: 0; background-color:rgb(191, 191, 253) ;color: black; text-align:left; width: 100%;">
+                                Stock Item Creation</h6>
+                        </div>
+                        <label for="">Name</label>
+                        <input type="text" name="" id=""> <br>
+                        <!-- <hr width="100%" class="mt-5" color="black"> -->
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="row">
             <div style="background-color:rgb(245 225 141);color: black;border: 1px solid black;" class="col-6 p-3">
-                <label for="">Under</label>
+                <div class="card">
+                    <div class="card-body">
+                        <label for="">Under</label>
 
-                <select class="mt-3" name="" id="dropdown">
-                    <option value="value1">Primary</option>
-                </select> <br>
+                        <select class="mt-3" name="" id="dropdown">
+                            <option value="value1">Primary</option>
+                        </select> <br>
 
-                <label for="">Units</label>
-                <select class="mt-3" name="dropdown" id="dropdown">
-                    <option value="value1">Not Applicable</option>
-                </select>
+                        <label for="">Units</label>
+                        <select class="mt-3" name="dropdown" id="dropdown">
+                            <option value="value1">Not Applicable</option>
+                        </select>
 
-                <br>
+                        <br>
+                    </div>
+                </div>
             </div>
             <div style="background-color:rgb(245 225 141);color: black;border: 1px solid black;" class="col-6 p-3">
                 <p>Statutary details</p>
@@ -513,7 +524,10 @@
             <br> <br> <br>
         </div>
         <div class="row">
+            
             <div style="background-color:rgb(245 225 141);color: black;" class="col p-3 ">
+                <div class="card">
+                    <div class="card-body">
                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                 <label for="" class="mt-3"><strong>Quantity</strong> </label>
@@ -526,45 +540,46 @@
                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                 <label for=""><strong>Value</strong> </label><br>
                 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-               
-                <label style="margin-bottom:3px ;" class=""  for="">Opening Balance :</label>
+
+                <label style="margin-bottom:3px ;" class="" for="">Opening Balance :</label>
                 <input style="margin-bottom:3px ;" class="" size="12" type="text" name="" id="">
                 <input style="margin-bottom:3px ;" class="" size="12" type="text" name="" id="">
                 <input style="margin-bottom:3px ;" class="" size="5" type="text" name="" id="">
                 <input style="margin-bottom:3px ;" class="" size="15" type="text" name="" id="">
-            
             </div>
-        </div> 
-                
-   
-
-
+            </div>
+            </div>
         </div>
-        <!-- JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-        <script src="{% static 'assets/js/popper.min.js' %}"></script>
-        <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-        <!--plugins-->
-        <script src="{% static 'assets/plugins/simplebar/js/simplebar.min.js' %}"></script>
-        <script src="{% static 'assets/plugins/metismenu/js/metisMenu.min.js' %}"></script>
-        <script src="{% static 'assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
-        <!-- Vector map JavaScript -->
-        <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js' %}"></script>
-        <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js' %}"></script>
-        <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-in-mill.js' %}"></script>
-        <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js' %}"></script>
-        <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-uk-mill-en.js' %}"></script>
-        <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-au-mill.js' %}"></script>
-        <script src="{% static 'assets/plugins/apexcharts-bundle/js/apexcharts.min.js' %}"></script>
-        <script src="{% static 'assets/js/index.js' %}"></script>
-        <!-- App JS -->
-        <script src="{% static 'assets/js/app.js' %}"></script>
 
-        <script>
-            new PerfectScrollbar('.dashboard-social-list');
-            new PerfectScrollbar('.dashboard-top-countries');
-        </script>
+
+
+
+    </div>
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!--plugins-->
+    <script src="{% static 'assets/plugins/simplebar/js/simplebar.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/metismenu/js/metisMenu.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+    <!-- Vector map JavaScript -->
+    <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js' %}"></script>
+    <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-in-mill.js' %}"></script>
+    <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js' %}"></script>
+    <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-uk-mill-en.js' %}"></script>
+    <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-au-mill.js' %}"></script>
+    <script src="{% static 'assets/plugins/apexcharts-bundle/js/apexcharts.min.js' %}"></script>
+    <script src="{% static 'assets/js/index.js' %}"></script>
+    <!-- App JS -->
+    <script src="{% static 'assets/js/app.js' %}"></script>
+
+    <script>
+        new PerfectScrollbar('.dashboard-social-list');
+        new PerfectScrollbar('.dashboard-top-countries');
+    </script>
 </body>
 
 

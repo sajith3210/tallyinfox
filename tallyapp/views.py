@@ -8,6 +8,7 @@ def index(request):
 
     return render(request,'index.html')
 
+#Stock group 
 def stockgroup(request):
     stock_grou=stock_group.objects.all()
     if request.method=="POST":
@@ -58,6 +59,7 @@ def stockgroupdelete(request,pk):
     stktable.delete()
     return redirect('liststockgroup')
 
+#Stock category part
 def stockcategory(request):
     stcat=stock_category.objects.all()
     if request.method=="POST":

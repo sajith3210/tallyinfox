@@ -22,6 +22,7 @@ class location(models.Model):
 class companypricelevel(models.Model):
     price_level_name=models.CharField(max_length=100)
 
+#Unit creation
 class unit(models.Model):
     type=models.CharField(max_length=50,null=True,blank=True)
     symbol=models.CharField(max_length=50,null=True,blank=True)
